@@ -1,2 +1,3 @@
-node bin/brain-games.js
+#!/usr/bin/env node
+
 Welcome to the Brain Games!
