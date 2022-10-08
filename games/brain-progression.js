@@ -18,14 +18,12 @@ const brainProgression = () => {
 
       if (j === 0) {
         a = `${res}`;
-        // continue;
       } else if (j === space) {
         a = `${a} ..`;
         answers.push(res);
-        // continue;
+      } else {
+        a = `${a} ${res}`;
       }
-
-      a = `${a} ${res}`;
     }
 
     const question = `${a}`;
