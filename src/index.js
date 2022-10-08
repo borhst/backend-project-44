@@ -1,36 +1,36 @@
-import getName from '../src/cli.js';
 import readlineSync from 'readline-sync';
+import getName from './cli.js';
 
 const taskPart = (task, questions, answers) => {
-   const rounds = 3;
+  const rounds = 3;
 
-   // greeting
+  // greeting
 
-   console.log("Welcome to the Brain Games!");
+  console.log('Welcome to the Brain Games!');
 
-   const name = getName();
-   console.log(`Hello, ${name}!`);
+  const name = getName();
+  console.log(`Hello, ${name}!`);
 
-   // task
-   
-   console.log(task);
+  // task
 
-   let i = 0;
-   for (i; i < rounds; i += 1) {
-      console.log(`Question: ${questions[i]}`); 
-      let res = readlineSync.question('Your answer: ');
-      if (res === answers[i] || Number(res) === answers[i]) {
-         console.log('Correct!');
-         //i += 1;
-         if (i === rounds - 1) {
-            console.log(`Congratulations, ${name}!`);
-         }
-      } else {
-         console.log(`'${res}' is wrong answer ;(. Correct answer was '${answers[i]}'`);
-         console.log(`Let's try again, ${name}!`);
-		   break;
+  console.log(task);
+
+  let i = 0;
+  for (i; i < rounds; i += 1) {
+    console.log(`Question: ${questions[i]}`);
+    const res = readlineSync.question('Your answer: ');
+    if (res === answers[i] || Number(res) === answers[i]) {
+      console.log('Correct!');
+      // i += 1;
+      if (i === rounds - 1) {
+        console.log(`Congratulations, ${name}!`);
       }
-   }
-}
+    } else {
+      console.log(`'${res}' is wrong answer ;(. Correct answer was '${answers[i]}'`);
+      console.log(`Let's try again, ${name}!`);
+      break;
+    }
+  }
+};
 
 export default taskPart;
